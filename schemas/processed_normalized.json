@@ -1,0 +1,34 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "processed.normalized",
+  "type": "object",
+  "properties": {
+    "source": { "type": "string" },
+    "event_time": { "type": "string", "format": "date-time" },
+    "location": {
+      "type": "object",
+      "properties": {
+        "lat": { "type": "number" },
+        "lon": { "type": "number" },
+        "place_id": { "type": "string" }
+      }
+    },
+    "params": {
+      "type": "object",
+      "properties": {
+        "temperature_c": { "type": ["number","null"] },
+        "windspeed_mps": { "type": ["number","null"] },
+        "aq_values": { "type": ["object","null"] },
+        "vehicle_count": { "type": ["number","null"] }
+      }
+    },
+    "meta": {
+      "type": "object",
+      "properties": {
+        "orig_topic": { "type": "string" },
+        "orig_id": { "type": ["string","null"] }
+      }
+    }
+  },
+  "required": ["source", "event_time", "location"]
+}
